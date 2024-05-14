@@ -82,7 +82,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:shiva@example.com" class="contact-link">shiva@example.com</a>
+              <a href="mailto:shiva@example.com" class="contact-link">gosulashiva7@gmail.com</a>
             </div>
 
           </li>
@@ -629,7 +629,7 @@
 
               <h4 class="h4 timeline-item-title">Student Assistant - Research</h4>
 
-              <span>2023 — present </span>
+              <span>2023 — 2024 </span>
 
               <p class="timeline-text">
                 Worked with Interior Architecture Dept. of Florida International University as Research Assistant in Ongoing Immersive student collaboratory Projects.
@@ -1199,38 +1199,8 @@
     </button>
   </form>
 </section>
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwnF7pbHIs06e_375S4YwACV6yw8qQ89atKLgQYXvq2c6uzZO6H4IEXsoE6X9ZK2oxU/exec'
-  const form = document.querySelector('#form')
-  const btn = document.querySelector('#submit')
 
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    btn.disabled = true
-    btn.innerHTML = "Loading..."
-
-    console.log(form)
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => { 
-            btn.disabled = false
-    btn.innerHTML = "Submit"
-          alert('Success!', response) })
-      .catch(error => {
-                   btn.disabled = false
-    btn.innerHTML = "Submit"
-          alert('Error!', error.message)})
-  })
-</script>
-
-
-
-
-      </article>
-
-    </div>
-
-  </main>
 
 
 
