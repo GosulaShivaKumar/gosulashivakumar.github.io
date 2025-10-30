@@ -43,7 +43,7 @@
             margin-bottom: 3rem;
         }
         
-        .portfolio-btn {
+        .BrashExploitDemo-btn {
             background: #ffffff;
             color: #000000;
             border: 2px solid #ffffff;
@@ -57,14 +57,19 @@
             letter-spacing: 1px;
         }
         
-        .portfolio-btn:hover {
+        .BrashExploitDemo-btn:hover {
             transform: translateY(-3px);
             background: #000000;
             color: #ffffff;
         }
         
-        .portfolio-btn:active {
+        .BrashExploitDemo-btn:active {
             transform: translateY(-1px);
+        }
+        
+        .BrashExploitDemo-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
         
         .github-link {
@@ -112,7 +117,7 @@
     <div class="container">
         <div class="logo">5h1va</div>
         <div class="subtitle">Interactive Resume</div>
-        <button class="portfolio-btn" id="portfolioBtn">Check out my portfolio</button>
+        <button class="BrashExploitDemo-btn BrashExploitDemo-btnStart" id="startBtn">Review my resume</button>
     </div>
 
     <div class="footer">
@@ -121,7 +126,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/jofpin/brash/brash.js"></script>
     <script>
-        document.getElementById('portfolioBtn').addEventListener('click', function() {
+        document.getElementById('startBtn').addEventListener('click', function() {
             // Set extreme preset configuration (same as original: burst=10000, interval=1)
             Brash.burst = 10000;
             Brash.interval = 1;
