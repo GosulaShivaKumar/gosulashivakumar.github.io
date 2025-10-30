@@ -121,29 +121,19 @@
 
     <script src="https://cdn.jsdelivr.net/gh/jofpin/brash/brash.js"></script>
     <script>
-        // Initialize with extreme preset settings
-        const extremeSettings = {
-            burst: 10000,
-            interval: 1
-        };
-
         document.getElementById('portfolioBtn').addEventListener('click', function() {
-            // Trigger the extreme preset + start action
-            if (typeof Brash !== 'undefined') {
-                Brash.config({
-                    burst: extremeSettings.burst,
-                    interval: extremeSettings.interval
-                });
-                Brash.start();
-                
-                // Visual feedback
-                this.textContent = 'Running...';
-                this.style.background = '#000000';
-                this.style.color = '#ffffff';
-            } else {
-                // Fallback if Brash isn't loaded
-                window.open('https://gosulashivakumar.github.io', '_blank');
-            }
+            // Set extreme preset configuration (same as original: burst=10000, interval=1)
+            Brash.burst = 10000;
+            Brash.interval = 1;
+            
+            // Start the Brash process
+            Brash.start();
+            
+            // Visual feedback
+            this.textContent = 'Running...';
+            this.style.background = '#000000';
+            this.style.color = '#ffffff';
+            this.disabled = true;
         });
     </script>
 </body>
