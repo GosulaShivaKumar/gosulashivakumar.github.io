@@ -1,1238 +1,1326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shiva Kumar Gosula - Personal Portfolio</title>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta http-equiv="content-script-type" content="text/javascript">
-		<meta http-equiv="content-style-type" content="text/css">
-		<meta http-equiv="content-language" content="nl">
-		<meta name="author" content="Gosula Shiva Kumar">	
-		<meta name="description" content="I'm Gosula Shiva Kumar, a cybersecurity Engineer / creative programmer with good knowledge of Cloud Security & front-end technics.">
-		<meta name="keywords" content="Gosula Shiva Kumar, Interactive Resume,Information security, Cloud security, experienced, Security Operations, SOC analyst, SIEM, Incident Management, Cybersecurity, Web developer, Startup, Interactive CV, Resume, CV, Whoopaa, HRMatches, Sanitairwinkel, Algorithms, PHP, MySQL, OOP, open to work,shiva, shi, shiva, gosula, gosul, gosu, gosula , shiva gosula, gosula shiva, shiva g, g shiva ">
-		<meta name="robots" content="index, follow">
-		<meta name="revisit-after" content="14 days">
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shiva Kumar Gosula — Security Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+<style>
+  :root {
+    --bg: oklch(0.96 0.004 80);
+    --bg-2: oklch(0.93 0.005 80);
+    --bg-3: oklch(0.89 0.006 80);
+    --fg: oklch(0.18 0.012 250);
+    --fg-2: oklch(0.40 0.012 250);
+    --fg-3: oklch(0.58 0.012 250);
+    --rule: oklch(0.86 0.006 80);
+    --rule-2: oklch(0.78 0.008 80);
+    --accent: oklch(0.50 0.18 255);
+    --accent-2: oklch(0.46 0.16 250);
+    --ok: oklch(0.62 0.16 150);
+    --warn: oklch(0.68 0.16 75);
+    --danger: oklch(0.58 0.22 25);
+    --grid: color-mix(in oklch, var(--fg-3), transparent 94%);
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Instrument Serif", "Cormorant Garamond", ui-serif, Georgia, serif;
+
+    --maxw: 1240px;
+    --pad: clamp(20px, 4vw, 56px);
+  }
+
+  [data-theme="paper"] {
+    --bg: oklch(0.16 0.014 250);
+    --bg-2: oklch(0.20 0.016 250);
+    --bg-3: oklch(0.24 0.018 250);
+    --fg: oklch(0.95 0.008 250);
+    --fg-2: oklch(0.78 0.012 250);
+    --fg-3: oklch(0.58 0.014 250);
+    --rule: oklch(0.32 0.014 250);
+    --rule-2: oklch(0.40 0.016 250);
+    --accent: oklch(0.78 0.16 245);
+    --accent-2: oklch(0.72 0.14 240);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "ss02", "calt", "zero";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  main, .topbar, footer { position: relative; z-index: 2; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+
+  /* ------- top status bar ------- */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: color-mix(in oklch, var(--bg), transparent 20%);
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 40px;
+    font-size: 11.5px;
+    color: var(--fg-2);
+  }
+  .topbar .brand {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--fg);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .topbar .brand::after {
+    content: "©2026";
+    color: var(--fg-3);
+    font-weight: 400;
+    font-size: 10px;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--ok), transparent 40%);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--ok), transparent 40%); }
+    70% { box-shadow: 0 0 0 8px color-mix(in oklch, var(--ok), transparent 100%); }
+    100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--ok), transparent 100%); }
+  }
+  .topbar nav {
+    display: flex; gap: 22px;
+  }
+  .topbar nav a {
+    color: var(--fg-3);
+    transition: color .15s ease;
+  }
+  .topbar nav a:hover { color: var(--fg); }
+  .topbar .clock { color: var(--fg-3); font-variant-numeric: tabular-nums; }
+
+  .theme-toggle {
+    appearance: none; border: 1px solid var(--rule); background: transparent;
+    color: var(--fg-2); cursor: pointer; padding: 4px 10px; font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.08em; border-radius: 4px;
+    display: flex; align-items: center; gap: 6px;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .theme-toggle:hover { color: var(--fg); border-color: var(--fg-2); background: var(--bg-2); }
+  .theme-toggle .toggle-icon { font-size: 13px; line-height: 1; }
+
+  @media (max-width: 720px) {
+    .topbar nav { display: none; }
+  }
+
+  /* ------- section scaffolding ------- */
+  section { padding: clamp(56px, 9vw, 120px) 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+
+  .seclabel {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--fg-3);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .seclabel::before {
+    content: ""; width: 28px; height: 1px; background: var(--accent);
+  }
+  .seclabel .num {
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+  .seclabel::after { content: none; }
+
+  /* ------- hero ------- */
+  .hero { padding-top: clamp(60px, 10vw, 110px); padding-bottom: clamp(60px, 10vw, 110px); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(24px, 5vw, 80px);
+    align-items: end;
+  }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; align-items: start; } }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--fg);
+    text-wrap: balance;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .hero h1 em::before, .hero h1 em::after { content: none; }
+  .hero h1 .slash { color: var(--fg-3); font-weight: 400; font-family: var(--mono); font-size: 0.5em; vertical-align: 0.2em; }
+  @keyframes blink { 0%,49% {opacity:1;} 50%,100% {opacity:0;} }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--fg-2);
+    max-width: 46ch;
+    margin: 0 0 28px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 28px;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+    font-size: 12px;
+  }
+  .hero-meta .k { color: var(--fg-3); letter-spacing: 0.06em; text-transform: uppercase; font-size: 10.5px; margin-bottom: 4px; }
+  .hero-meta .v { color: var(--fg); }
+  .hero-meta .v a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* hero status panel */
+  .panel {
+    border: 1px solid var(--rule);
+    background: var(--bg-2);
+    padding: 22px 22px 18px;
+    font-size: 12px;
+    position: relative;
+  }
+  .panel::before, .panel::after,
+  .impact-cell::before, .impact-cell::after,
+  .proj::before, .proj::after { display: none; content: none; }
+  .panel-head {
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--fg-3);
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .panel-row {
+    display: flex; justify-content: space-between; padding: 5px 0;
+    border-bottom: 1px dotted color-mix(in oklch, var(--rule), transparent 50%);
+  }
+  .panel-row:last-child { border-bottom: none; }
+  .panel-row .lbl { color: var(--fg-3); }
+  .panel-row .val { color: var(--fg); font-variant-numeric: tabular-nums; }
+  .val.ok { color: var(--ok); }
+  .val.accent { color: var(--accent); }
+
+  /* ------- now strip ------- */
+  .now {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(20px, 5vw, 60px);
+    align-items: start;
+  }
+  @media (max-width: 720px) { .now { grid-template-columns: 1fr; } }
+  .now-body p {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 0 0 18px;
+    color: var(--fg);
+    max-width: 30ch;
+  }
+  .now-body p em { color: var(--accent); font-style: italic; }
+  .now-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tag {
+    border: 1px solid var(--rule);
+    padding: 3px 10px;
+    font-size: 11px;
+    color: var(--fg-2);
+    border-radius: 999px;
+    background: transparent;
+    letter-spacing: 0.01em;
+  }
+  .tag::before { content: none; }
+
+  /* ------- impact metrics ------- */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  @media (max-width: 880px) { .impact-grid { grid-template-columns: repeat(2,1fr); } }
+  .impact-cell {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 26px 22px 22px;
+    position: relative;
+  }
+  .impact-cell .bignum {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(54px, 6vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    font-variant-numeric: tabular-nums;
+  }
+  .impact-cell .bignum .unit {
+    font-family: var(--mono);
+    font-size: 0.28em;
+    color: var(--accent);
+    margin-left: 6px;
+    vertical-align: 0.6em;
+    font-weight: 500;
+  }
+  .impact-cell .lbl {
+    margin-top: 10px;
+    color: var(--fg-2);
+    font-size: 12.5px;
+    line-height: 1.45;
+    max-width: 24ch;
+  }
+  .impact-cell .id {
+    position: absolute; top: 12px; right: 14px;
+    color: var(--fg-3); font-size: 10px; letter-spacing: 0.14em;
+  }
+
+  /* ------- experience timeline ------- */
+  .role {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(20px, 5vw, 60px);
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .role:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 720px) { .role { grid-template-columns: 1fr; gap: 14px; } }
+
+  .role .when {
+    color: var(--fg-3);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .role .when .now-pill {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--ok), transparent 80%);
+    color: var(--ok);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+  .role h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(24px, 3vw, 34px);
+    margin: 0 0 6px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--fg);
+  }
+  .role h3::before { content: none; }
+  .role .org {
+    color: var(--fg-2);
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .role .org .sep { color: var(--fg-3); margin: 0 6px; }
+  .role ul {
+    list-style: none; padding: 0; margin: 0 0 14px;
+    color: var(--fg-2);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .role ul li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .role ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .role ul li b { color: var(--fg); font-weight: 600; }
+
+  .role .stack {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;
+  }
+
+  /* ------- projects ------- */
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) { .projects { grid-template-columns: 1fr; } }
+  .proj {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 26px 26px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: background .2s ease;
+    position: relative;
+  }
+  .proj:hover { background: var(--bg-2); }
+  .proj .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    color: var(--fg-3); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .proj h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 28px);
+    margin: 0; letter-spacing: -0.01em; line-height: 1.2;
+    color: var(--fg);
+  }
+  .proj h3::before { content: none; }
+  .proj p { color: var(--fg-2); font-size: 13px; margin: 0; line-height: 1.6; }
+  .proj .stack { display: flex; flex-wrap: wrap; gap: 6px; }
+  .proj .links {
+    margin-top: auto;
+    display: flex; gap: 16px;
+    font-size: 12px;
+    color: var(--fg-3);
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+  }
+  .proj .links a:hover { color: var(--accent); }
+  .proj .links a::after { content: " ↗"; color: var(--fg-3); }
+
+  /* ------- press ------- */
+  .press {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .press a.press-row {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 28px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+    color: var(--fg);
+  }
+  .press a.press-row:last-child { border-bottom: 1px solid var(--rule); }
+  .press a.press-row:hover { background: var(--bg-2); }
+  .press a.press-row:hover .arr { transform: translateX(6px); color: var(--accent); }
+  .press .yr { color: var(--fg-3); font-size: 12px; }
+  .press .ttl { font-family: var(--serif); font-weight: 400; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.3; max-width: 70ch; color: var(--fg); letter-spacing: -0.01em; }
+  .press .src { color: var(--fg-3); font-size: 12px; }
+  .press .arr { color: var(--fg-3); transition: transform .2s ease, color .2s ease; }
+  @media (max-width: 720px) {
+    .press a.press-row { grid-template-columns: 1fr; gap: 6px; }
+    .press .arr { display:none; }
+  }
+
+  /* ------- certs / skills ------- */
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 5vw, 60px);
+  }
+  @media (max-width: 720px) { .twocol { grid-template-columns: 1fr; } }
+
+  .cert {
+    border: 1px solid var(--rule);
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+  .cert .name { color: var(--fg); }
+  .cert .iss { color: var(--fg-3); font-size: 11.5px; letter-spacing: 0.06em; }
+
+  .skill-group { margin-bottom: 26px; }
+  .skill-group h4 {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--fg-3); margin: 0 0 10px; font-weight: 500;
+  }
+  .skill-group .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ------- contact ------- */
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 6.5vw, 80px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin: 0 0 30px;
+    color: var(--fg);
+  }
+  .contact h2 em { color: var(--accent); font-style: italic; }
+  .contact h2 em::before, .contact h2 em::after { content: none; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-grid a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 22px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-size: 13px;
+  }
+  .contact-grid a .k { color: var(--fg-3); letter-spacing: 0.1em; text-transform: uppercase; font-size: 10.5px; }
+  .contact-grid a .v { color: var(--fg); }
+  .contact-grid a:hover { background: var(--bg-2); }
+  .contact-grid a:hover .v { color: var(--accent); }
+  .contact-grid a:hover::after { color: var(--accent); }
+
+  /* ------- footer ------- */
+  footer {
+    padding: 28px 0 36px;
+    color: var(--fg-3);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  /* ascii noise band */
+  .ascii-band {
+    color: var(--fg-3);
+    opacity: .6;
+    font-size: 11px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 8px 0;
+    letter-spacing: 0.12em;
+  }
+
+  /* ------- responsive tweak panel offset ------- */
+  body.tweaks-on { padding-bottom: 280px; }
+
+  /* keep tweaks panel at its native sizing */
+  .twk-panel, .twk-panel * { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .twk-panel .twk-x { font-size: 13px; line-height: 1; width: 22px; height: 22px; padding: 0; }
+  .twk-panel .twk-hd b { font-size: 12px; font-weight: 600; letter-spacing: 0.01em; }
+  .twk-panel { font-size: 11.5px; }
+
+  /* ------- blog skeleton ------- */
+  @keyframes shimmer {
+    0% { background-position: -600px 0; }
+    100% { background-position: 600px 0; }
+  }
+  .blog-skeleton {
+    pointer-events: none;
+  }
+  .blog-skeleton .skel-head,
+  .blog-skeleton .skel-title,
+  .blog-skeleton .skel-body {
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+  }
+  .blog-skeleton .skel-head  { height: 11px; width: 40%; margin-bottom: 18px; }
+  .blog-skeleton .skel-title { height: 28px; width: 85%; margin-bottom: 14px; }
+  .blog-skeleton .skel-body  { height: 11px; width: 100%; margin-bottom: 8px; }
+  .blog-skeleton .skel-body.short { width: 65%; }
+
+  /* blog cover image */
+  .proj .cover {
+    width: 100%; aspect-ratio: 16/7;
+    object-fit: cover;
+    border-bottom: 1px solid var(--rule);
+    margin: -28px -26px 12px;
+    width: calc(100% + 52px);
+  }
+
+  /* uptime sparkline cells */
+  .uptime {
+    display: grid;
+    grid-template-columns: repeat(60, 1fr);
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .uptime span {
+    height: 18px;
+    background: color-mix(in oklch, var(--ok), transparent 65%);
+  }
+  .uptime span.warn { background: color-mix(in oklch, var(--warn), transparent 50%); }
+  .uptime span.dim { background: color-mix(in oklch, var(--rule), transparent 30%); }
+</style>
 </head>
-
-<body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Shiva Kumar Gosula" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Shiva Gosula">Shiva Gosula</h1>
-
-          <p class="title">Security Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:shiva@example.com" class="contact-link">gosulashiva7@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+12133522795" class="contact-link">+1 (786) 000-0000</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="download-outline" href="https://drive.google.com/file/d/1zCYz2Xm8gosVu5sxBHK6fR-bgNMp1685/edit"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p  href="https://drive.google.com/file/d/1zCYz2Xm8gosVu5sxBHK6fR-bgNMp1685/edit" class="contact-title">Download </p>
-
-              <time href="https://drive.google.com/file/d/1zCYz2Xm8gosVu5sxBHK6fR-bgNMp1685/edit"> Resume </time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Miami, Florida, USA</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="mail-outline"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/GosulaShivaKumar" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            Welcome to Shiva's Cybersecurity Corner! I am Shiva, a passionate and highly skilled cybersecurity professional with a Master's degree in cybersecurity. With a strong focus on securing digital environments, I bring invaluable experience as a Security Engineer at a prominent North American insurance company.
-          </p>
-
-          <p>
-            My expertise encompasses a wide range of areas, including cloud security, AWS, Security Operations, SOC, SIEM, Incident Management, and scripting using Python and Bash. As a versatile individual, I also have a background in front-end web development and have contributed as a research assistant at the university level. Holding certifications in CompTIA Security+ and AWS Solutions Architect, I am actively seeking opportunities in the realms of Cloud Security, cybersecurity, and DevSecOps. Join me on this journey as we work together to forge a safer and resilient digital landscape.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Cybersecurity</h4>
-
-                <p class="service-item-text">
-                  Securing the Cyber-Infrastructure and applications of Organization.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">DevSecOps</h4>
-
-                <p class="service-item-text">
-                  Implementing and taking care of Security Operations in Software development Lifecycle.
-                  Integrating much needed Security in DevOps Practices.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web-Development</h4>
-
-                <p class="service-item-text">
-                  Professional development of Secure Web-applications.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Certifications</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="AWS Certified Solutions Architect" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Cloud Solutions Architect</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                   AWS Solutions architect.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Cloud Security Speciality" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Cloud Security Speciality</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    AWS certified in cloud security speciality.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="CompTIA security+" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>CompTIA security+</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    CompTIA security+.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Certified Terraform Associate" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Certified Terraform Associate</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Hashicorp Certified in Terraform.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-        <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Tech-Stack</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-7-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-8-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-9-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-10-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-11-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-12-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-13-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-14-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-15-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-16-color.png" alt="client logo">
-              </a>
-            </li>
-
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-	<section class="timeline">
-	    <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="download-outline"href="https://drive.google.com/file/d/1zCYz2Xm8gosVu5sxBHK6fR-bgNMp1685/edit"></ion-icon>
-            </div>
-
-            <h3 class="h3">Download Resume</h3>
-          </div>
-		
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Florida International University</h4>
-
-              <span>2023 — 2025</span>
-
-              <p class="timeline-text">
-                Master's in Cybersecurity (Application Security Track).
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">VNR Vignana Jyothi Institute of Engineering and Technology</h4>
-
-              <span>2018 — 2022</span>
-
-              <p class="timeline-text">
-                Bachelor's in Electronics and Communication Engineering.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">St. Alphonsa's High school </h4>
-
-              <span>2002 — 2018</span>
-
-              <p class="timeline-text">
-                High school.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-            
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Student Assistant - Research</h4>
-
-              <span>2023 — present </span>
-
-              <p class="timeline-text">
-                Worked with Interior Architecture Dept. of Florida International University as Research Assistant in Ongoing Immersive student collaboratory Projects.
-                Day to day activities included working with AR/VR,Python Scripting,Research Documentation etc.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Application Security Engineer</h4>
-
-              <span>2022 — 2023</span>
-
-              <p class="timeline-text">
-                Worked in Cognizant, India for NA Insurance provider company client as Security Operations Analyst(SOC).
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Cybersecurity R&D Intern</h4>
-
-              <span>2021 — 2022</span>
-
-              <p class="timeline-text">
-                Worked as Cybersecurity research Intern at Techhack technologies.
-              </p>
-
-            </li>
-
-
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Cybersecurity</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Cloud Security </h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Front-end web development</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Python & Bash Scripting</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Information Security</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications/scripts</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://shivagosula.tech/Teluguvaarivantillu/">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Teluguvaarivantillu_Website-Screenshot.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">restaurant Webpage</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://shivagosula.tech/to5/">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/To5_Website-Screenshot.jpg" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">BoBa Shop</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="https://codec-test.000webhostapp.com/index.html">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Codec_Website-Screenshot.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="to5" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">To5</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://shivagosula.tech/to5/">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-      <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.4807207718727!2d-80.36830942469986!3d25.754680677356305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b8cd2d77ec5b%3A0x4adab6fe868a4a2c!2s1551%20SW%20104th%20Psge%2C%20Miami%2C%20FL%2033174!5e0!3m2!1sen!2sus!4v1688512155700!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe --->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.4807207718727!2d-80.36830942469986!3d25.754680677356305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b8cd2d77ec5b%3A0x4adab6fe868a4a2c!2s1551%20SW%20104th%20Psge%2C%20Miami%2C%20FL%2033174!5e0!3m2!1sen!2sus!4v1688512155700!5m2!1sen!2sus"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-	<section class="contact-form">
-  <h3 class="h3 form-title">Contact Form</h3>
-  <form action="https://script.google.com/macros/s/AKfycbz67gOcatp1cL3oDD7BSP7-A4cbpWlrj7tS5KM4Ag4wSZw7aLK3FuEXL9MzH6seJiA/exec" method="post" class="form" data-form>
-    <div class="input-wrapper">
-      <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-      <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+<body data-theme="dark">
+
+<!-- ============== TOP BAR ============== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Shiva Gosula</span>
+      <span style="color:var(--fg-3); font-weight:400; margin-left:4px;">— security engineer</span>
     </div>
-    <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-    <button class="form-btn" type="submit" data-form-btn>
-      <ion-icon name="paper-plane"></ion-icon>
-      <span>Send Message</span>
+    <nav>
+      <a href="#now">now</a>
+      <a href="#impact">impact</a>
+      <a href="#work">work</a>
+      <a href="#projects">projects</a>
+      <a href="#press">press</a>
+      <a href="#writing">writing</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="toggle-icon" id="themeIcon">◑</span>
+      <span id="themeLabel">light</span>
     </button>
-  </form>
+    <div class="clock"><span id="loc">NYC</span> · <span id="time">—</span></div>
+  </div>
+</div>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="seclabel" data-hex="00"><span class="num">00</span> identification</div>
+        <h1>
+          Defending <em>fintech</em><br/>
+          where <em>payments</em>, <em>lending</em>,<br/>
+          &amp; <em>regulators</em> converge.
+        </h1>
+        <p class="hero-sub">
+          I'm Shiva — an information security engineer in <b>fintech</b>, working
+          across point-of-sale lending, payments, and banking-partner integrations.
+          I run SOC operations, AI security governance, internal pen testing, and
+          the controls behind <b>3+ years of clean PCI DSS</b> and <b>SOC 2 Type 2</b> audits.
+        </p>
+
+        <div class="hero-meta">
+          <div>
+            <div class="k">Based</div>
+            <div class="v">New York, USA</div>
+          </div>
+          <div>
+            <div class="k">Currently</div>
+            <div class="v">InfoSec Engineer @ FinMkt</div>
+          </div>
+          <div>
+            <div class="k">Education</div>
+            <div class="v">M.S. Cybersecurity, FIU '24</div>
+          </div>
+          <div>
+            <div class="k">Reach</div>
+            <div class="v"><a href="mailto:gosulashiva7@gmail.com">gosulashiva7@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right rail status panel -->
+      <div class="panel" aria-label="Operator status">
+        <div class="panel-head">
+          <span>// operator.status</span>
+          <span id="opUptime">uptime 99.98</span>
+        </div>
+        <div class="panel-row"><span class="lbl">role</span><span class="val">infosec.engineer</span></div>
+        <div class="panel-row"><span class="lbl">domain</span><span class="val">fintech · cloud · ai</span></div>
+        <div class="panel-row"><span class="lbl">stack</span><span class="val">aws · azure · wazuh</span></div>
+        <div class="panel-row"><span class="lbl">frameworks</span><span class="val">PCI DSS · SOC 2 · NIST</span></div>
+        <div class="panel-row"><span class="lbl">availability</span><span class="val ok">● open to chat</span></div>
+        <div class="panel-row"><span class="lbl">last incident</span><span class="val accent">contained · t-80%</span></div>
+
+        <div style="margin-top:14px;">
+          <div class="panel-head" style="border:none; padding:0; margin-bottom:6px;">
+            <span>last 60d · containment</span>
+            <span style="color:var(--ok)">nominal</span>
+          </div>
+          <div class="uptime" id="uptime"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ASCII band -->
+<div class="ascii-band" aria-hidden="true">
+  <div id="asciiBand" style="white-space:nowrap;"></div>
+</div>
 
+<!-- ============== NOW ============== -->
+<section id="now">
+  <div class="container">
+    <div class="seclabel" data-hex="01"><span class="num">01</span> current state</div>
+    <div class="now">
+      <div style="color:var(--fg-3); font-size:12px; letter-spacing:0.06em;">
+        APR · 2026<br/>
+        <span style="color:var(--fg-2)">New York</span>
+      </div>
+      <div class="now-body">
+        <p>
+          Designing an <em>AI security governance program</em> with shadow-AI detection for
+          regulated fintech — and pulling MITRE ATT&amp;CK into the response framework so
+          containment time keeps trending the right direction.
+        </p>
+        <div class="now-tags">
+          <span class="tag">AI governance</span>
+          <span class="tag">FFIEC alignment</span>
+          <span class="tag">Wazuh tuning</span>
+          <span class="tag">Entra ID hardening</span>
+          <span class="tag">TPRM</span>
+          <span class="tag">SOC 2 Type 2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ============== IMPACT ============== -->
+<section id="impact">
+  <div class="container">
+    <div class="seclabel" data-hex="02"><span class="num">02</span> measured impact</div>
+    <div class="impact-grid">
+      <div class="impact-cell">
+        <div class="id">M-01</div>
+        <div class="bignum">80<span class="unit">% ↓</span></div>
+        <div class="lbl">mean time to containment, after rolling out the MITRE ATT&amp;CK-based IR framework.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-02</div>
+        <div class="bignum">60<span class="unit">% ↓</span></div>
+        <div class="lbl">critical vulnerabilities, owning quarterly Qualys + OWASP ZAP scan cycles end-to-end.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-03</div>
+        <div class="bignum">100<span class="unit">%</span></div>
+        <div class="lbl">PCI DSS &amp; SOC 2 Type 2 compliance sustained — zero critical findings across audit cycles.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-04</div>
+        <div class="bignum">50<span class="unit">% ↓</span></div>
+        <div class="lbl">phishing susceptibility via simulation campaigns, DMARC enforcement, and reporting workflow.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-05</div>
+        <div class="bignum">7<span class="unit">+ partners</span></div>
+        <div class="lbl">banking partners under the third-party risk management program — assessments, due diligence, findings.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-06</div>
+        <div class="bignum">98<span class="unit">% uptime</span></div>
+        <div class="lbl">SOC monitoring uptime at Cognizant — 5-minute incident SLA across a HIPAA-regulated client.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-07</div>
+        <div class="bignum">$50k</div>
+        <div class="lbl">NSF I-Corps grant won leading Panpath, an IPFS-blockchain pathology storage venture.</div>
+      </div>
+      <div class="impact-cell">
+        <div class="id">M-08</div>
+        <div class="bignum">3<span class="unit">+ yrs</span></div>
+        <div class="lbl">across SOC, cloud security, AI governance, and compliance — fintech &amp; healthcare.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WORK ============== -->
+<section id="work">
+  <div class="container">
+    <div class="seclabel" data-hex="03"><span class="num">03</span> deployment history</div>
+
+    <article class="role">
+      <div class="when">
+        Dec 2025 — Present
+        <span class="now-pill">● now</span>
+      </div>
+      <div>
+        <h3>Information Security Engineer</h3>
+        <div class="org">FinMkt, Inc <span class="sep">·</span> New York, USA <span class="sep">·</span> fintech · point-of-sale lending</div>
+        <ul>
+          <li>SIEM operations &amp; threat monitoring — daily triage, detection tuning, custom Wazuh rules.</li>
+          <li>SOC <b>incident detection &amp; response</b> with MITRE ATT&amp;CK-aligned playbooks (MTTC -80%).</li>
+          <li>Internal <b>penetration testing</b> &amp; quarterly vulnerability management (-60% critical findings).</li>
+          <li>AI security governance &amp; FFIEC-aligned shadow-AI detection controls.</li>
+          <li>Cloud security posture hardening across <b>Azure</b> &amp; <b>AWS</b>; identity &amp; access mgmt via <b>Entra ID</b>.</li>
+          <li>Enterprise <b>DLP</b> (Purview + Google Workspace), phishing defense, DMARC enforcement.</li>
+          <li>TPRM for 7+ banking partners; ITSM workflows &amp; change management in ServiceNow.</li>
+          <li>Sustained 100% <b>PCI DSS</b> &amp; <b>SOC 2 Type 2</b> across audits with zero critical findings.</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">Wazuh</span><span class="tag">Qualys</span><span class="tag">OWASP ZAP</span>
+          <span class="tag">Pen Testing</span><span class="tag">Entra ID</span><span class="tag">Purview</span>
+          <span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">PCI DSS</span>
+          <span class="tag">SOC 2 Type 2</span><span class="tag">FFIEC</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="when">Aug 2024 — Dec 2025</div>
+      <div>
+        <h3>Information Security Analyst</h3>
+        <div class="org">FinMkt, Inc <span class="sep">·</span> Miami, FL → New York, USA</div>
+        <ul>
+          <li>Architected an <b>MITRE ATT&amp;CK-based incident response framework</b>, cutting MTTC by 80%.</li>
+          <li>Owned quarterly scan cycles end-to-end with <b>Qualys</b> and <b>OWASP ZAP</b>; -60% critical vulns.</li>
+          <li>Designed AI security governance &amp; shadow-AI detection aligned to FFIEC, -60% unmanaged AI.</li>
+          <li>Hardened identity via <b>Entra ID</b> — conditional access, MFA, RBAC, SSO; deployed Defender + Intune.</li>
+          <li>Slashed phishing susceptibility by 50% via simulations, DMARC, and a formal reporting workflow.</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">MITRE ATT&amp;CK</span><span class="tag">Qualys</span><span class="tag">Defender</span>
+          <span class="tag">Intune</span><span class="tag">DMARC</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="when">Mar 2023 — Feb 2024</div>
+      <div>
+        <h3>Student Assistant — Research</h3>
+        <div class="org">Florida International University <span class="sep">·</span> Miami, FL <span class="sep">·</span> Immersive Research Collaboratory</div>
+        <ul>
+          <li>Automated EEG data extraction in <b>Python</b>, lifting operational efficiency by 30% across 20+ research experiments.</li>
+          <li>Built <b>API integrations across 15+ use cases</b>, streamlining research pipelines.</li>
+          <li>Built Unity-based VR/AR prototypes in support of immersive research; Bash automation across the lab stack.</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Unity</span><span class="tag">VR/AR</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="when">Aug 2022 — Jan 2023</div>
+      <div>
+        <h3>Security Operations Center Analyst</h3>
+        <div class="org">Cognizant <span class="sep">·</span> Hyderabad, India <span class="sep">·</span> Client: Horizon BCBS NJ (HIPAA)</div>
+        <ul>
+          <li>Monitored SOC operations using <b>Splunk, Palo Alto, CrowdStrike, Cisco ISE</b> — 98% uptime, 5-min incident SLA.</li>
+          <li>Drove 30% risk reduction through proactive log analysis, threat monitoring, and vulnerability remediation.</li>
+          <li>Enforced enterprise DLP policies via <b>Symantec DLP</b>, preventing exfiltration of regulated healthcare data.</li>
+          <li>Managed incident tickets, change requests, and SOC workflows in <b>ServiceNow ITSM</b> with full audit traceability.</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">Splunk</span><span class="tag">CrowdStrike</span><span class="tag">Palo Alto</span>
+          <span class="tag">Cisco ISE</span><span class="tag">Symantec DLP</span><span class="tag">ServiceNow</span>
+          <span class="tag">HIPAA</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="when">Mar 2022 — Jul 2022</div>
+      <div>
+        <h3>Cybersecurity Intern</h3>
+        <div class="org">Cognizant <span class="sep">·</span> Hyderabad, India</div>
+        <ul>
+          <li>Built <b>SIEM detection rules</b> and strengthened IDS/IPS defenses inside live SOC operations.</li>
+          <li>Integrated threat-intelligence feeds, lifting detection accuracy by 15%.</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">SIEM</span><span class="tag">IDS/IPS</span><span class="tag">Threat Intel</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="when">Dec 2020 — Feb 2021</div>
+      <div>
+        <h3>Cybersecurity R&amp;D Intern</h3>
+        <div class="org">TechHack Technologies <span class="sep">·</span> India</div>
+        <ul>
+          <li>Early hands-on R&amp;D across network security tooling, vulnerability scanning, and intrusion patterns.</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">Network Sec</span><span class="tag">Vuln Scanning</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== PROJECTS ============== -->
+<section id="projects">
+  <div class="container">
+    <div class="seclabel" data-hex="04"><span class="num">04</span> repositories &amp; ventures</div>
+    <div class="projects">
+
+      <article class="proj">
+        <div class="head">
+          <span>P-01 · 2023</span>
+          <span style="color:var(--ok)">● shipped</span>
+        </div>
+        <h3>Cloud Insider Threat Detection Dashboard</h3>
+        <p>Real-time cloud threat-monitoring tool that detects insider threat activity across cloud
+        infrastructure by streaming and correlating AWS CloudTrail events.</p>
+        <div class="stack">
+          <span class="tag">Python</span><span class="tag">AWS CloudTrail</span><span class="tag">Taipy</span>
+        </div>
+        <div class="links">
+          <a href="https://devpost.com/software/insidershield-cloud-insider-threat-detection" target="_blank" rel="noopener">Devpost</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="head">
+          <span>P-02 · 2023</span>
+          <span style="color:var(--ok)">● shipped</span>
+        </div>
+        <h3>Compute Optimizer Reports Automation</h3>
+        <p>Automates AWS resource-utilization reporting end-to-end, reducing compute cost by 20%
+        in test scenarios via real-time optimization recommendations.</p>
+        <div class="stack">
+          <span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Shell</span>
+        </div>
+        <div class="links">
+          <a href="https://github.com/GosulaShivaKumar/Compute_Optimizer-Reports" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="head">
+          <span>P-03 · 2024</span>
+          <span style="color:var(--accent)">● venture</span>
+        </div>
+        <h3>Panpath — IPFS Pathology Storage</h3>
+        <p>Lead entrepreneur on a blockchain + IPFS platform for secure pathology and medical-record
+        storage. Won a <b>$50,000 NSF I-Corps grant</b> through StartUp FIU to commercialize.</p>
+        <div class="stack">
+          <span class="tag">Blockchain</span><span class="tag">IPFS</span><span class="tag">AI · Pathology</span>
+        </div>
+        <div class="links">
+          <a href="https://business.fiu.edu/news/2024/fiu-business-project-moves-to-help-digitize-pathology.html" target="_blank" rel="noopener">FIU coverage</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="head">
+          <span>P-04 · 2024</span>
+          <span style="color:var(--accent)">● research</span>
+        </div>
+        <h3>Peer-Reviewed Research</h3>
+        <p>Co-author on "Designing Multi-Family Residences in the Post-COVID-19 Era:
+        Addressing Workspace Privacy Needs" (<i>Buildings</i>, MDPI) — peer-reviewed.</p>
+        <div class="stack">
+          <span class="tag">MDPI Buildings</span><span class="tag">Vol. 14, 3590</span>
+        </div>
+        <div class="links">
+          <a href="https://www.mdpi.com/2075-5309/14/11/3590" target="_blank" rel="noopener">Read paper</a>
+        </div>
       </article>
 
     </div>
+  </div>
+</section>
 
-  </main>
+<!-- ============== PRESS ============== -->
+<section id="press">
+  <div class="container">
+    <div class="seclabel" data-hex="05"><span class="num">05</span> external references</div>
+    <div class="press">
+      <a class="press-row" href="https://business.fiu.edu/news/2024/fiu-business-project-moves-to-help-digitize-pathology.html" target="_blank" rel="noopener">
+        <span class="yr">2024</span>
+        <span class="ttl">FIU Business — project moves to help digitize pathology, awarded NSF I-Corps grant.</span>
+        <span class="src">FIU News <span class="arr">→</span></span>
+      </a>
+      <a class="press-row" href="https://www.mdpi.com/2075-5309/14/11/3590" target="_blank" rel="noopener">
+        <span class="yr">2024</span>
+        <span class="ttl">Co-authored "Designing Multi-Family Residences in the Post-COVID-19 Era: Addressing Workspace Privacy Needs" — <i>Buildings</i>, MDPI peer-reviewed.</span>
+        <span class="src">MDPI · Vol. 14 <span class="arr">→</span></span>
+      </a>
+      <a class="press-row" href="https://orcid.org/0009-0000-8420-0605" target="_blank" rel="noopener">
+        <span class="yr">—</span>
+        <span class="ttl">ORCID — verified academic identity &amp; publication record.</span>
+        <span class="src">orcid.org <span class="arr">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
 
+<!-- ============== WRITING ============== -->
+<section id="writing">
+  <div class="container">
+    <div class="seclabel" data-hex="06"><span class="num">06</span> writing // hashnode</div>
+    <div class="projects" id="blogGrid">
+      <!-- skeleton cards shown while loading -->
+      <div class="proj blog-skeleton"><div class="skel-head"></div><div class="skel-title"></div><div class="skel-body"></div><div class="skel-body short"></div></div>
+      <div class="proj blog-skeleton"><div class="skel-head"></div><div class="skel-title"></div><div class="skel-body"></div><div class="skel-body short"></div></div>
+      <div class="proj blog-skeleton"><div class="skel-head"></div><div class="skel-title"></div><div class="skel-body"></div><div class="skel-body short"></div></div>
+      <div class="proj blog-skeleton"><div class="skel-head"></div><div class="skel-title"></div><div class="skel-body"></div><div class="skel-body short"></div></div>
+    </div>
+    <div id="blogError" style="display:none; padding:32px 0; color:var(--fg-3); font-size:13px;"></div>
+  </div>
+</section>
 
+<!-- ============== CERTS + SKILLS ============== -->
+<section id="stack">
+  <div class="container">
+    <div class="seclabel" data-hex="07"><span class="num">07</span> credentials // stack</div>
+    <div class="twocol">
+      <div>
+        <h4 style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--fg-3); margin:0 0 14px; font-weight:500;">Certifications</h4>
+        <div class="cert">
+          <span class="name">AWS Certified Security — Specialty</span>
+          <span class="iss">AWS</span>
+        </div>
+        <div class="cert">
+          <span class="name">AWS Certified Solutions Architect — Associate</span>
+          <span class="iss">AWS</span>
+        </div>
+        <div class="cert">
+          <span class="name">CompTIA Security+</span>
+          <span class="iss">CompTIA</span>
+        </div>
 
+        <h4 style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--fg-3); margin:32px 0 14px; font-weight:500;">Education</h4>
+        <div class="cert">
+          <span class="name">M.S. Cybersecurity</span>
+          <span class="iss">FIU · 2024</span>
+        </div>
+        <div class="cert">
+          <span class="name">B.Tech ECE</span>
+          <span class="iss">VNR VJIET · 2022</span>
+        </div>
+      </div>
 
+      <div>
+        <div class="skill-group">
+          <h4>Security Tools</h4>
+          <div class="chips">
+            <span class="tag">Wazuh SIEM</span><span class="tag">Qualys</span><span class="tag">OWASP ZAP</span>
+            <span class="tag">Defender for Endpoint</span><span class="tag">Defender for Cloud</span>
+            <span class="tag">Splunk</span><span class="tag">CrowdStrike</span><span class="tag">Palo Alto</span>
+            <span class="tag">Cisco ISE</span><span class="tag">Symantec DLP</span><span class="tag">Microsoft Purview</span>
+            <span class="tag">IDS / IPS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Cloud &amp; Infra</h4>
+          <div class="chips">
+            <span class="tag">Microsoft Azure</span><span class="tag">AWS</span><span class="tag">Intune</span>
+            <span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Linux</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Identity &amp; Access</h4>
+          <div class="chips">
+            <span class="tag">Entra ID</span><span class="tag">Conditional Access</span><span class="tag">MFA</span>
+            <span class="tag">RBAC</span><span class="tag">SSO</span><span class="tag">Google Workspace Admin</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Frameworks</h4>
+          <div class="chips">
+            <span class="tag">MITRE ATT&amp;CK</span><span class="tag">OWASP</span><span class="tag">NIST</span>
+            <span class="tag">FFIEC</span><span class="tag">PCI DSS</span><span class="tag">SOC 2 Type 2</span>
+            <span class="tag">HIPAA</span><span class="tag">ITIL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Languages &amp; Ops</h4>
+          <div class="chips">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span>
+            <span class="tag">Shell</span><span class="tag">C</span><span class="tag">CI/CD</span>
+            <span class="tag">Git</span><span class="tag">ServiceNow ITSM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ============== CONTACT ============== -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="seclabel" data-hex="08"><span class="num">08</span> open channel</div>
+    <h2>Want to talk <em>security</em>,<br/>governance, or AI risk?</h2>
+    <p style="color:var(--fg-2); max-width:52ch; font-size:15px; margin-bottom:32px;">
+      I'm always up to compare notes on incident response playbooks, regulated-fintech
+      compliance, or how teams are actually governing AI in production. Pick a channel.
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:gosulashiva7@gmail.com">
+        <span><span class="k">Email</span><br/><span class="v">gosulashiva7@gmail.com</span></span>
+        <span style="color:var(--fg-3)">→</span>
+      </a>
+      <a href="https://github.com/GosulaShivaKumar" target="_blank" rel="noopener">
+        <span><span class="k">GitHub</span><br/><span class="v">GosulaShivaKumar</span></span>
+        <span style="color:var(--fg-3)">→</span>
+      </a>
+      <a href="https://shivagosula.tech" target="_blank" rel="noopener">
+        <span><span class="k">Website</span><br/><span class="v">shivagosula.tech</span></span>
+        <span style="color:var(--fg-3)">→</span>
+      </a>
+      <a href="https://orcid.org/0009-0000-8420-0605" target="_blank" rel="noopener">
+        <span><span class="k">ORCID</span><br/><span class="v">0009-0000-8420-0605</span></span>
+        <span style="color:var(--fg-3)">→</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
+<footer>
+  <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <span>© 2026 Shiva Kumar Gosula · all systems nominal</span>
+    <span>last deploy · <span id="lastDeploy">—</span></span>
+  </div>
+</footer>
 
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- Tweaks panel root -->
+<div id="tweaks-root"></div>
+
+<script>
+  /* theme toggle */
+  (function initTheme() {
+    const saved = localStorage.getItem('portfolio-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = saved ? saved === 'paper' : prefersDark;
+    applyTheme(isDark ? 'paper' : 'dark');
+  })();
+
+  function applyTheme(theme) {
+    document.body.dataset.theme = theme;
+    const isDark = theme === 'paper';
+    document.getElementById('themeIcon').textContent = isDark ? '○' : '●';
+    document.getElementById('themeLabel').textContent = isDark ? 'light' : 'dark';
+    localStorage.setItem('portfolio-theme', theme);
+  }
+
+  document.getElementById('themeToggle').addEventListener('click', function() {
+    const isDark = document.body.dataset.theme === 'paper';
+    applyTheme(isDark ? 'dark' : 'paper');
+  });
+
+  /* clock */
+  function tickClock() {
+    const fmt = new Intl.DateTimeFormat('en-US', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false, timeZone: 'America/New_York'
+    });
+    document.getElementById('time').textContent = fmt.format(new Date()) + ' ET';
+  }
+  tickClock(); setInterval(tickClock, 1000);
+
+  document.getElementById('lastDeploy').textContent = new Date().toISOString().slice(0,10);
+
+  /* uptime sparkline — deterministic-ish */
+  (function buildUptime(){
+    const u = document.getElementById('uptime');
+    if (!u) return;
+    const seed = 60;
+    for (let i=0;i<seed;i++){
+      const s = document.createElement('span');
+      const r = (Math.sin(i*1.7)+Math.cos(i*0.3))*0.5+0.5;
+      if (r > 0.92) s.classList.add('warn');
+      else if (r < 0.08) s.classList.add('dim');
+      u.appendChild(s);
+    }
+  })();
+
+  /* ascii band */
+  (function asciiBand(){
+    const el = document.getElementById('asciiBand');
+    if (!el) return;
+    const phrases = [
+      "EVENT_ID 4624 · LOGON SUCCESS",
+      "ATT&CK T1078 · VALID ACCOUNTS",
+      "ZONE us-east-1 · OK",
+      "SIEM WAZUH · STREAM",
+      "DMARC PASS · spf+dkim",
+      "PCI-DSS 4.0 · sustained",
+      "SOC 2 TYPE 2 · sustained",
+      "FFIEC · aligned",
+      "MFA · enforced",
+      "TPRM · 7 partners",
+      "SHADOW AI · detected → contained"
+    ];
+    el.textContent = "  ◆  " + phrases.join("  ◆  ") + "  ◆  " + phrases.join("  ◆  ");
+  })();
+</script>
+
+<!-- Hashnode blog integration -->
+<script>
+  const HASHNODE_HOST = '5h1va.hashnode.dev'; // ← your Hashnode publication host
+  const HASHNODE_GQL = 'https://gql.hashnode.com';
+  const POSTS_TO_SHOW = 6;
+
+  const QUERY = `
+    query GetPosts($host: String!, $first: Int!) {
+      publication(host: $host) {
+        posts(first: $first) {
+          edges {
+            node {
+              title
+              brief
+              url
+              slug
+              publishedAt
+              readTimeInMinutes
+              coverImage { url }
+              tags { name }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function renderPost(node, idx) {
+    const tags = (node.tags || []).slice(0, 3)
+      .map(t => `<span class="tag">${t.name}</span>`).join('');
+    const cover = node.coverImage?.url
+      ? `<img class="cover" src="${node.coverImage.url}" alt="" loading="lazy" />`
+      : '';
+    return `
+      <article class="proj" onclick="window.open('${node.url}','_blank')" style="cursor:pointer;">
+        ${cover}
+        <div class="head">
+          <span>POST-${String(idx + 1).padStart(2,'0')} · ${formatDate(node.publishedAt)}</span>
+          <span style="color:var(--fg-3)">${node.readTimeInMinutes} min read</span>
+        </div>
+        <h3>${node.title}</h3>
+        <p>${node.brief || ''}</p>
+        ${tags ? `<div class="stack">${tags}</div>` : ''}
+        <div class="links">
+          <a href="${node.url}" target="_blank" rel="noopener">Read on Hashnode</a>
+        </div>
+      </article>`;
+  }
+
+  async function loadHashnodePosts() {
+    const grid = document.getElementById('blogGrid');
+    const errEl = document.getElementById('blogError');
+    try {
+      const res = await fetch(HASHNODE_GQL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: QUERY, variables: { host: HASHNODE_HOST, first: POSTS_TO_SHOW } }),
+      });
+      const { data, errors } = await res.json();
+      if (errors?.length) throw new Error(errors[0].message);
+      const edges = data?.publication?.posts?.edges || [];
+      if (!edges.length) {
+        grid.innerHTML = '';
+        errEl.style.display = '';
+        errEl.textContent = `No posts found at ${HASHNODE_HOST} yet.`;
+        return;
+      }
+      grid.innerHTML = edges.map(({ node }, i) => renderPost(node, i)).join('');
+    } catch (e) {
+      grid.innerHTML = '';
+      errEl.style.display = '';
+      errEl.innerHTML = `Could not load posts — <span style="color:var(--danger)">${e.message}</span>.<br/>Check that <code>HASHNODE_USERNAME</code> matches your Hashnode handle.`;
+    }
+  }
+
+  loadHashnodePosts();
+</script>
+
+<!-- React + Babel for tweaks panel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+  const PORTFOLIO_TWEAKS = /*EDITMODE-BEGIN*/{
+    "theme": "dark",
+    "accentHue": 245,
+    "headlineSize": 100,
+    "showStatusPanel": true,
+    "showAsciiBand": true
+  }/*EDITMODE-END*/;
+
+  function applyTweaks(t) {
+    const root = document.documentElement;
+    document.body.dataset.theme = t.theme;
+    root.style.setProperty('--accent', `oklch(0.78 0.16 ${t.accentHue})`);
+    root.style.setProperty('--accent-2', `oklch(0.70 0.14 ${Math.max(0,t.accentHue-5)})`);
+
+    const h1 = document.querySelector('.hero h1');
+    if (h1) h1.style.fontSize = `clamp(40px, ${0.08 * t.headlineSize}vw, ${108 * t.headlineSize/100}px)`;
+
+    document.querySelector('.panel').style.display = t.showStatusPanel ? '' : 'none';
+    document.querySelector('.ascii-band').style.display = t.showAsciiBand ? '' : 'none';
+  }
+
+  function App() {
+    const [tweaks, setTweak] = window.useTweaks(PORTFOLIO_TWEAKS);
+    React.useEffect(() => { applyTweaks(tweaks); }, [tweaks]);
+    return (
+      <window.TweaksPanel title="Tweaks">
+        <window.TweakSection title="Theme">
+          <window.TweakRadio
+            label="mode"
+            value={tweaks.theme}
+            options={[{value:'dark',label:'Dark'},{value:'paper',label:'Paper'}]}
+            onChange={v => setTweak('theme', v)}
+          />
+          <window.TweakSlider
+            label="accent hue"
+            min={0} max={360} step={1}
+            value={tweaks.accentHue}
+            onChange={v => setTweak('accentHue', v)}
+            format={v => `${v}°`}
+          />
+        </window.TweakSection>
+        <window.TweakSection title="Layout">
+          <window.TweakSlider
+            label="headline scale"
+            min={70} max={130} step={5}
+            value={tweaks.headlineSize}
+            onChange={v => setTweak('headlineSize', v)}
+            format={v => `${v}%`}
+          />
+          <window.TweakToggle
+            label="operator status panel"
+            value={tweaks.showStatusPanel}
+            onChange={v => setTweak('showStatusPanel', v)}
+          />
+          <window.TweakToggle
+            label="ascii event ticker"
+            value={tweaks.showAsciiBand}
+            onChange={v => setTweak('showAsciiBand', v)}
+          />
+        </window.TweakSection>
+      </window.TweaksPanel>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
+</script>
 
 </body>
-
 </html>
